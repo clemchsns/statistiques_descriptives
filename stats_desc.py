@@ -198,8 +198,10 @@ def create_var_jeu_charts(df):
 
 def affichage_variable(df):
     df_var = liste_bd[df]
-    st.write(df_var.columns)
-    st.write(df_var.head())
+    st.write("Voici la liste des variables disponibles dans la base de données sélectionnée")
+    st.table(df_var.columns)
+    st.write("Voici les premières lignes de la base de données sélectionnée")
+    st.table(df_var.head())
 
 
 # Interface utilisateur
