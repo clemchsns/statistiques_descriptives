@@ -90,12 +90,14 @@ def create_profil_charts(df):
         st.pyplot(fig)
 
     with col3:
+        # créé une copie du dataframe pour ne pas modifier l'original
+        df_tri = df.copy()
         # st.write("### Répartition des trimestres de naissance")
-        df['TRIMESTRE_NAISSANCE'] = pd.cut(df['MOIS_NAISSANCE'], 
+        df_tri['TRIMESTRE_NAISSANCE'] = pd.cut(df_tri['MOIS_NAISSANCE'], 
                                            bins=[0, 3, 6, 9, 12], 
                                            labels=['T1 (Jan-Mars)', 'T2 (Avr-Juin)', 'T3 (Juil-Sep)', 'T4 (Oct-Déc)'],
                                            right=True)
-        distribution_trimestres = df['TRIMESTRE_NAISSANCE'].value_counts()
+        distribution_trimestres = df_tri['TRIMESTRE_NAISSANCE'].value_counts()
         fig, ax = plt.subplots(figsize=(4, 4))
         colors = plt.cm.Blues([0.2, 0.4, 0.6, 0.8])
         distribution_trimestres.plot(kind='pie', autopct='%1.1f%%', startangle=90, colors=colors, ax=ax)
