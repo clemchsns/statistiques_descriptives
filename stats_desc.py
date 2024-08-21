@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+import matplotlib as plt
 # Configuration de la page pour qu'elle prenne toute la largeur
 st.set_page_config(layout="wide")
 
